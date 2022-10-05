@@ -15,5 +15,10 @@ fn main() {
 
     //to insert an entry if not exists
     scores.entry(String::from("Yellow")).or_insert(30);
-    println!("scores hashmap is : {:?}", scores);
+
+    for (key, value) in scores.into_iter() {
+        println!("{} {}", key, value);
+    }
+
+    // println!("scores hashmap is : {:?}", scores);
 }
