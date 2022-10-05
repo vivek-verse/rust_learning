@@ -1,8 +1,0 @@
-[package]
-name = "puzzles"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-thiserror = "1.0"
-log = "0.4"
