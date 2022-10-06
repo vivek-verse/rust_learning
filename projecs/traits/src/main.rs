@@ -1,3 +1,5 @@
+use std::fmt::Display;
+
 pub struct NewsArticle {
     pub author: String,
     pub headline: String,
@@ -35,6 +37,35 @@ impl Summary for Tweet {
     }
 }
 
+pub fn notify<T: Summary>(item: &T) {
+    println!("Breaking news: {}", item.summarize());
+}
+
+struct Pair<T> {
+    x: T,
+    y: T,
+}
+
+impl<T> Pair<T> {
+    fn new(x: T, y: T) -> Self {
+        Self { x, y }
+    }
+}
+
+impl<T> Pair<T>
+where
+    T: Display + PartialOrd,
+{
+    //this function will only be available to pair struct that implement Display and PartialOrd
+    fn cmp_display(&self) {
+        if self.x >= self.y {
+            println!("The largest member is x = {}", self.x);
+        } else {
+            println!("The largest member is y = {}", self.y);
+        }
+    }
+}
+
 fn main() {
     let tweet = Tweet {
         username: String::from("@johndoe"),
@@ -51,4 +82,10 @@ fn main() {
 
     println!("Tweet summary: {}", tweet.summarize());
     println!("Article summary: {}", article.summarize());
+    notify(&article);
+
+    let pair = Pair::new(10, 20);
+
+    //integers implement Display, PartialOrd, Copy
+    pair.cmp_display();
 }
