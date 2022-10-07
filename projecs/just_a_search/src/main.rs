@@ -3,9 +3,7 @@ use just_a_search::Config;
 use std::env;
 use std::process;
 fn main() {
-    let args = env::args().collect::<Vec<String>>();
-
-    let config = Config::new(&args).unwrap_or_else(|err| {
+    let config = Config::new(env::args()).unwrap_or_else(|err| {
         println!("Problem parsing arguments: {}", err);
         process::exit(1);
     });
