@@ -1,0 +1,11 @@
+[package]
+name = "features_consumer"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+looking_into_features = { path = "../looking_into_features", default-features = false, features = [
+    "shapes",
+] }
