@@ -1,5 +1,5 @@
 [package]
-name = "custom_error_handling"
+name = "error_handling_with_extern_crates"
 version = "0.1.0"
 edition = "2021"
 
@@ -8,3 +8,5 @@ edition = "2021"
 [dependencies]
 log = "0.4.17"
 env_logger = "0.9.1"
+thiserror = "1.0.37"
+anyhow = "1.0.66"
